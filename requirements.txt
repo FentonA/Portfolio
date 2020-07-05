@@ -14,3 +14,4 @@ babel
 flask-debugtoolbar==0.10.0
 Flask-Mail == 0.9.1
 Flask-Login == 0.3.2
+gunicorn==19.9.0

@@ -1,6 +1,8 @@
-import babel 
+
 import csv
+import smtplib
 from flask import Flask, render_template, request, Response, flash, redirect
+
 
 
 app = Flask(__name__)
@@ -33,6 +35,28 @@ def contact_form():
     if request.method == 'POST':
         data = request.form.to_dict()
         write_to_csv(data)
+        # email = data["email"]
+        # subject = data["subject"]
+        # message = data["message"]
+
+        # my_email = 'Fentonalf@gmail.com'
+        # mail_from = email
+        # mail_subject = subject
+        # mail_message = f'''
+        # From: {mail_from}
+        # To: {mail_subject}
+        # Subject: {subject}
+        # {message}
+        # '''
+        # server = smtplib.SMTP('http://127.0.0.1:8000/')
+        # server.sendmail(mail_from, my_email, mail_subject, mail_message)
+        # server.quit
         return redirect('thankyou.html')
     else:
         flash("Something went wrong, please try again")
+
+
+
+
+if __name__ == "__main__":
+    app.run()
